@@ -1,0 +1,58 @@
+.tabcard {
+    margin: 1rem 0;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.tabcard input {
+    display: none;
+}
+
+/*filename headers*/
+.tabcard label {
+    font-size: var(--font-size--small);
+    color: var(--color-foreground-muted);
+    cursor: pointer;
+    display: block;
+    text-align: center;
+    padding: 0.625rem 1rem 0.325rem;
+    transition: color 0.2s ease-in-out;
+}
+
+.tabcard label:first-of-type {
+    border-top-left-radius: 0.25rem;
+}
+
+.tabcard label:last-of-type {
+    border-top-right-radius: 0.25rem;
+}
+
+.tabcard input:hover + label {
+    color: var(--color-foreground-brand);
+}
+
+.tabcard input:checked + label {
+    color: var(--color-foreground-brand);
+    border-bottom: 0.3rem solid var(--color-brand-primary);
+}
+
+/*display area*/
+.tabcard .tc-display {
+    display: none;
+}
+
+.tabcard input:checked + label + .tc-display {
+    display: block;
+    font-size: 0.9rem;
+    width: 100%;
+    border-top: 1px solid var(--color-background-border);
+    border-radius: 0.25rem;
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+    padding: 0 0.875rem;
+    order: 1;
+}
+
+.tabcard input:checked + label + .tc-display :is([class^="highlight"], pre) {
+    padding: 0;
+}
