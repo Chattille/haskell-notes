@@ -151,7 +151,7 @@ def depart_tab_node(translator: HTMLTranslator, node: TabNode):
 
 
 def setup(app: Sphinx) -> Dict:
-    """Setup the plugn.
+    """Setup the plugin.
 
     Args:
         app (Sphinx): The whole Sphinx application.
