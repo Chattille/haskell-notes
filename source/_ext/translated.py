@@ -38,7 +38,7 @@ class TranslatedNode(Element, Inline):
             st (str): The source text, inside a parentheses.
         """
         super().__init__(rawsource, *children, **attributes)
-        self.set_class("translated")
+        self['classes'].append('translated')
         self.target_text = tt
         self.source_text = st
 

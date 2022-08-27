@@ -67,8 +67,8 @@ class TabNode(Body, Element):
 class TabcardDirective(SphinxDirective):
     """A tabcard containing a set of tabs."""
 
-    has_content: bool = True
-    option_spec: Dict = {
+    has_content = True
+    option_spec = {
         "class": directives.class_option,
         "name": directives.unchanged,
     }
@@ -79,7 +79,6 @@ class TabcardDirective(SphinxDirective):
         Returns:
             A list of docutils node that will be inserted into the document.
         """
-        set_classes(self.options)
         self.assert_has_content()
         text = "\n".join(self.content)
         # create a node object
@@ -100,8 +99,8 @@ class TabcardDirective(SphinxDirective):
 class TabDirective(SphinxDirective):
     """A tab inside a tabcard."""
 
-    required_arguments: int = 1  # tab title
-    has_content: bool = True
+    required_arguments = 1  # tab title
+    has_content = True
 
     def run(self) -> Sequence[Node]:
         """Process the content of the directive.
@@ -137,7 +136,6 @@ def visit_tab_node(translator: HTMLTranslator, node: TabNode):
         f"<input id=\"{id}\" name=\"{tab_group}\" type=\"radio\"{checked} />\n"
         f"<label for=\"{id}\">{node.tab_title}</label>\n"
         f"<div class=\"tc-display\">")
-    translator.context.append("</div>")
 
 
 def depart_tab_node(translator: HTMLTranslator, node: TabNode):
@@ -147,7 +145,7 @@ def depart_tab_node(translator: HTMLTranslator, node: TabNode):
         translator (HTMLTranslator): Sphinx HTML translator.
         node (TabNode): The TabNode being visited.
     """
-    translator.body.append(translator.context.pop())  # tab-display
+    translator.body.append('</div>')  # tab-display
 
 
 def setup(app: Sphinx) -> Dict:

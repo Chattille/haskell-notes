@@ -19,15 +19,20 @@ Example:
        .. code-block:: python
           :linenos:
 
-          def hello():
-              print("Hello World!")
+          {python code}
+
+    will be converted to:
+
+    <details class="summary-source-0 custom-summary">
+        <summary>Source</summary>
+        <div class="highlight-python ...">{python code}</div>
+    </details>
 """
 
 from typing import Dict, Optional, Sequence
 
-from docutils.nodes import Body, Element, Node, make_id
+from docutils.nodes import General, Element, Node, make_id
 from docutils.parsers.rst import directives
-from docutils.parsers.rst.roles import set_classes
 from sphinx.application import Sphinx
 from sphinx.util.docutils import SphinxDirective
 from sphinx.writers.html import HTMLTranslator
@@ -36,7 +41,7 @@ __all__ = ["CollapseNode", "CollapseDirective",
            "visit_collapse_node", "depart_collapse_node", "setup"]
 
 
-class CollapseNode(Body, Element):
+class CollapseNode(General, Element):
     """A node representing a collapsible section."""
 
     def __init__(
@@ -53,17 +58,16 @@ class CollapseNode(Body, Element):
 class CollapseDirective(SphinxDirective):
     """A collapsible section using a <details> element."""
 
-    final_argument_whitespace: bool = True
-    has_content: bool = True
-    required_arguments: int = 1  # summary
-    option_spec: Dict = {
+    final_argument_whitespace = True
+    has_content = True
+    required_arguments = 1  # summary
+    option_spec = {
         "class": directives.class_option,
         "name": directives.unchanged,
     }
 
     def run(self) -> Sequence[Node]:
         """Process the content of the directive."""
-        set_classes(self.options)
         self.assert_has_content()
         text = '\n'.join(self.content)
         label = self.arguments[0]  # summary
@@ -96,7 +100,6 @@ def visit_collapse_node(translator: HTMLTranslator, node: CollapseNode):
 
     translator.body.append(
         f"<{' '.join(opener)}>\n<summary>{node.label}</summary>")
-    translator.context.append('</details>')
 
 
 def depart_collapse_node(translator: HTMLTranslator, node: CollapseNode):
@@ -106,7 +109,7 @@ def depart_collapse_node(translator: HTMLTranslator, node: CollapseNode):
         translator (HTMLTranslator): Sphinx HTML translator.
         node (CollapseNode): The CollapseNode being visited.
     """
-    translator.body.append(translator.context.pop())
+    translator.body.append('</details>')
 
 
 def setup(app: Sphinx) -> Dict:
