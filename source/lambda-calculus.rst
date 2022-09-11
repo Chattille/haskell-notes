@@ -23,13 +23,10 @@
 定义
 ====
 
-.. code-block:: abnf
-   :caption: ABNF
-   :name: abnf
-
-   expression  = name / function / application
-   function    = "λ" name "." expression
-   application = expression expression
+.. productionlist::
+   expression: name | function | application
+   function: "λ" name "." expression
+   application: expression expression
 
 - :tr:`标识符 (name)`\ ：\ ``x``
 
@@ -50,10 +47,6 @@
     - 函数体不作任何计算，只作\ :tr:`解析 (resolving)`\ ，解析完成则函数应用完成；
     - 函数体尽可能向右扩展，即\ ``λx.M N``\ 等价于\ ``λx.(M N)``\ ，而非\ ``(λx.M) N``\ ；
 
-  .. attention::
-
-     在 λ 演算的世界中，只存在上述的标识符、函数和应用三种语法，此处的\ ``+``\ 仅为方便表示抽象的“相加”函数操作，不表示实际表达式内容。λ 演算中加法的实际定义见\ :ref:`后文 <lambda-calculus:加法>`\ 。
-
 - :tr:`应用 (application)`\ ：\ ``(λx.x+1) a``
 
   - 传入后一个表达式，调用前一个表达式；
@@ -64,6 +57,10 @@
 
   - 一行符号称为表达式；
   - 允许使用括号组织表达式，改变优先级；
+
+  .. attention::
+
+     在 λ 演算的世界中，只存在上述的标识符、函数和应用三种语法，此处的\ ``+``\ 仅为方便表示抽象的“相加”函数操作，不表示实际表达式内容。λ 演算中加法的实际定义见\ :ref:`后文 <lambda-calculus:加法>`\ 。
 
 柯里化
 ======
