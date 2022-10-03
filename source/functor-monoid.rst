@@ -165,7 +165,7 @@
 
      import Data.Char
 
-     -- | 将输入字符串转换为大写并逆序输出。
+     -- | 将输入字符串转换为大写并倒序输出。
      main = do
        -- getLine :: IO String
        -- 因此 'f' 应用于 'String',
