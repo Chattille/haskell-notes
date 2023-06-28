@@ -1,0 +1,6 @@
+.DS_Store
+.mypy_cache/
+.vscode/
+
+build/
+source/_ext/__pycache__/
