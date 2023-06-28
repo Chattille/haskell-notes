@@ -65,3 +65,7 @@ dd .field-list :is(.field-name, .field-body) > * {
 img {
     margin: 1rem 0;
 }
+
+.strike {
+    text-decoration: line-through;
+}

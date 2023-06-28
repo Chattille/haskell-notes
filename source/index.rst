@@ -33,6 +33,9 @@
    - :ref:`genindex`
    - :ref:`hs-modindex`
 
+.. role:: strike
+   :class: strike
+
 ============
 Haskell 简介
 ============
@@ -117,13 +120,18 @@ Haskell 项目
 - Cabal_\ ：Haskell 包管理器和包生成器；
 - GHCup_：GHC 和 Cabal 的工具链安装器；
 - Stack_：跨平台的 Haskell 项目管理工具，包括 GHC 安装、项目编译、依赖安装等；
-- `Haskell Platform`_\ ：打包的 Haskell 开发环境，包括以上所有工具，并附加 35 个核心库和其他广泛使用的包，支持代码覆盖率检查；
+- `Haskell Platform`_\ ：\ :strike:`打包的 Haskell 开发环境，包括以上所有工具，并附加 35 个核心库和其他广泛使用的包，支持代码覆盖率检查`\ ；
+
+  .. note::
+
+     `Haskell Platform`_ 2022年后已弃用，推荐使用 GHCup_\ 。
+
 - |HLS|_\ ：Haskell 语言服务器，可集成于编辑器；
 - Haddock_\ ：事实上的 Haskell 文档生成器；
 
 .. note::
 
-   推荐使用 GHCup 安装 GHC、Cabal、HLS 和 Stack，再\ :doc:`使用 Stack 管理项目 <stack>`\ 。
+   推荐使用 GHCup_ 安装 GHC、Cabal、HLS 和 Stack，再\ :doc:`使用 Stack 管理项目 <stack>`\ 。
 
 IDE
 ---
