@@ -23,3 +23,4 @@ jobs:
       with:
         documentation_path: ./source
         requirements_path: ./source/requirements.txt
+        sphinx_version: 6.2.1
