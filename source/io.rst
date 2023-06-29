@@ -105,8 +105,8 @@
        name <- getLine
        putStrLn $ "Helle, " ++ name ++ "!"
 
-:hs:func:`return`\ 函数
-=======================
+``return``\ 函数
+================
 
 .. hs:function:: return :: Monad m => a -> m a
    :module:

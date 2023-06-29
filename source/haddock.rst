@@ -432,7 +432,7 @@ Haddock
 
 .. code-block::
 
-   -- &#x3bb; is the lower case lambda letter.
+   -- &#x3bb; 表示小写 λ。
 
 代码块
 ~~~~~~

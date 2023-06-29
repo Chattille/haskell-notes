@@ -321,7 +321,7 @@
 
 .. hs:function:: splitAt :: Int -> [a] -> ([a], [a])
 
-   接受一个索引值`n`和一个列表，返回从索引处拆分后的两个新列表组成的序对。
+   接受一个索引值\ ``n``\ 和一个列表，返回从索引处拆分后的两个新列表组成的序对。
 
    索引值从 0 开始。若索引值小于等于 0，则序对第一个元素为空元素，若大于等于列表长度，则序对第二个元素为空元素。
 
@@ -334,7 +334,7 @@
       exp3 = splitAt 10 a -- ("liddell","")
 
 .. hs:function:: lines :: String -> [String]
-   :module: base-4.14.3.0:Data.OldList
+   :module: Data.OldList
 
    接受一个字符串，按换行符拆分字符串并返回列表。
 
@@ -345,7 +345,8 @@
       exp4 = lines "alice\nliddell" -- ["alice","liddell"]
       exp5 = unlines ["foo", "bar"] -- "foo\nbar\n"
 
-.. hs:function:: base-4.14.3.0:Data.OldList.words :: String -> [String]
+.. hs:function:: words :: String -> [String]
+   :module: Data.OldList
 
    接受一个字符串，按一或多个连续空白字符拆分字符串并返回列表。
 
@@ -613,10 +614,10 @@
                                 -- [10,11,12,14,16,17,18,20]
    exp5 = [ x * y | x <- [2, 5, 10], y <- [8, 10, 11], x * y > 50 ]
                                 -- [55,80,100,110]
-   removeUpper :: String -> String
-   removeUpper st = [ x | x <- st, x `elem` ['A' .. 'Z'] ]
+   keepUpper :: String -> String
+   keepUpper st = [ x | x <- st, x `elem` ['A' .. 'Z'] ]
 
-   exp6 = removeUpper "AliceInWonderland" -- "AIW"
+   exp6 = keepUpper "AliceInWonderland" -- "AIW"
 
    xxs :: [[Int]]
    xxs =
@@ -627,7 +628,7 @@
 
    exp7 = [ [ x | x <- xs, even x ] | xs <- xxs ]
                                 -- [[2,2],[2,4,6],[2,4,2,6,2]]
-   exp8 = -- brittany style
+   exp8 = -- brittany 风格
        [ (a, b, c)
        | c <- [1 .. 10]
        , b <- [1 .. c]

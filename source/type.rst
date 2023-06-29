@@ -55,7 +55,7 @@
    :linenos:
 
    x :: Int  -- x 有类型 Int
-   x = 3     -- x **默认**为 3
+   x = 3     -- x **默认** 为 3
    x = 4
    -- test.hs:3:1: error:
    --     Multiple declarations of ‘x’
@@ -156,7 +156,7 @@
        head :: [a] -> a
        -- 函数 'head' 取出并返回列表的第一个元素，列表元素可为任意类型
 
-  - 不同字符不一定代表类型不同；
+  - 不同字符不一定代表不同类型；
 
     .. code-block::
 
@@ -181,7 +181,7 @@
   - 类型约束：
 
     - 使用小括号\ ``()``\ 包围，在此约束类型；
-    - ``<typeClass> <typeVariable>``\ 表示类型变量\ ``<typeVariable>``\ 为类型类\ ``typeClass``\ 的成员；
+    - ``<typeClass> <typeVariable>``\ 表示类型变量\ ``<typeVariable>``\ 为类型类\ ``<typeClass>``\ 的成员；
     - 多个类型约束用逗号\ ``,``\ 分隔；
     - 当只有一个类型约束时，括号可省略；
 

@@ -112,17 +112,17 @@ Lambda 函数
      .. code-block::
 
         sum' :: (Foldable t, Num b) => t b -> b
-        sum' xs = foldl (+) 0 xs  -- "xs" here is unneccessary
+        sum' xs = foldl (+) 0 xs  -- 此处 "xs" 不必要
 
         sum' :: GHC.Types.Any Integer -> Integer
-        sum' = foldl (+) 0        -- Returns a function that accepts lists
+        sum' = foldl (+) 0        -- 返回接收列表的函数
 
         fn :: (RealFrac a, Integral b, Floating a) => a -> b
         fn x = ceiling (negate (tan (cos (max 50 x))))
 
         fn :: Double -> Integer
         fn = ceiling . negate . tan . cos . max 50
-                                  -- Returns a function
+                                  -- 返回一个函数
 
    - 函数组合有时可以提高代码可读性，利于无值编程，但并不是任何时候函数组合都能提高可读性；
 
@@ -131,7 +131,7 @@ Lambda 函数
         addSqSum :: Integer
         addSqSum = (sum . takeWhile (<10000) . filter odd . map (^ 2)) [1 ..]
 
-        addSquareSum :: Integer -- Maybe more readable
+        addSquareSum :: Integer -- 可能更易读
         addSquareSum =
             let oddSquares = (filter odd . map (^ 2)) [1 ..]
                 belowLimit = takeWhile (< 10000) oddSquares

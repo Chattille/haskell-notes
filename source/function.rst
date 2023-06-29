@@ -147,9 +147,9 @@
 .. code-block::
 
    <functionName> <pattern>
-       | <condition> = <functionBody>
-       ...
-       | otherwise   = <functionBody>
+     | <condition> = <functionBody>
+     ...
+     | otherwise   = <functionBody>
 
 - :tr:`守卫 (guard)`\ ：用于检查表达式的\ **真值**\ ；
 - 语法格式：
